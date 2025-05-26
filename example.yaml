@@ -1,0 +1,18 @@
+name: Test
+  env: Test
+colors:
+  - name: blue
+    hex: 0000
+    labels:
+      - water
+      - sky
+  - name: green
+    hex: 1111
+    labels:
+      - plants
+      - success
+  - name: red
+    hex: 2222
+    labels:
+      - force
+      - end
