@@ -6,7 +6,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Printing folders
-        run: |
-          echo "Printing folders"
-          ls -la
+      - name: Set Up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+      - name: Install Dependencies
+        run: npm ci
