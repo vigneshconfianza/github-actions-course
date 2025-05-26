@@ -1,9 +1,9 @@
 name: "01 - Building Blocks"
 on: 
     # Push and workflow dispatch events
-    push:
-        branches:
-            - "*"
+    # push:
+    #     branches:
+    #         - "*"
     workflow_dispatch:
 jobs:
     echo-hello:
