@@ -1,29 +1,21 @@
 name: 02 - Workflow Events
 on:
+  push:
+  pull_request:
   workflow_dispatch:
+
+  schedule:
+    - cron: '*/5 * * * *'
+  # [push, pull_request, workflow_dispatch]
+  # schedule:
+  #   - cron: "*/5 * * * *"  
+  # push:
+  # pull_request:
+  # workflow_dispatch:
 jobs:
-  test:
+  echo:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Manually triggered!"
-# name: 02 - Workflow Events
-# on:
-#   push:
-#   pull_request:
-#   workflow_dispatch:
-
-#   schedule:
-#     - cron: '*/5 * * * *'
-#   # [push, pull_request, workflow_dispatch]
-#   # schedule:
-#   #   - cron: "*/5 * * * *"  
-#   # push:
-#   # pull_request:
-#   # workflow_dispatch:
-# jobs:
-#   echo:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Show the trigger
-#         run: |
-#           echo "Event name: ${{ github.event_name }}"
+      - name: Show the trigger
+        run: |
+          echo "Event name: ${{ github.event_name }}"
