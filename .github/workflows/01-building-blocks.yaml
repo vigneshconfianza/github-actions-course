@@ -1,10 +1,5 @@
 name: "01 - Building Blocks"
-on: 
-    # Push and workflow dispatch events
-    push:
-        # branches:
-        #     - "*"
-    workflow_dispatch:
+on: workflow_dispatch
 jobs:
     echo-hello:
         runs-on: ubuntu-latest
