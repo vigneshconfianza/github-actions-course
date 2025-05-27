@@ -12,14 +12,13 @@ jobs:
         run: |
           echo "output1=Hello from job1" >> $GITHUB_OUTPUT
           # Echo outputs currently available
-          echo "Available outputs: ${{ toJson(github.outputs) }}"
 
       - name: Set output2
         id: step2
         run: |
           echo "output2=Hello from step2" >> $GITHUB_OUTPUT
           # Echo outputs currently available
-          echo "Available outputs: ${{ toJson(github.outputs) }}"
+          echo "Available outputs: ${{ steps.step1.outputs.output1 }}"
 
   job2:
     runs-on: ubuntu-latest
@@ -27,12 +26,5 @@ jobs:
     steps:
       - name: Use output1 from job1
         run: |
-          echo "Output from job1: ${{ needs.job1.outputs.output1 }}"
-          # Echo outputs currently available
-          echo "Available outputs: ${{ toJson(github.outputs) }}"
+          echo "Output from job1: ${{ needs.job1.outputs.output1 }}, ${{ needs.job1.outputs.output2 }}"
 
-      - name: Use output2 from step2 in job1
-        run: |
-          echo "Output from step2 in job1: ${{ needs.job1.outputs.output2 }}"
-          # Echo outputs currently available
-          echo "Available outputs: ${{ toJson(github.outputs) }}"
