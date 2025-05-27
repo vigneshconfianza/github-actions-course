@@ -6,7 +6,7 @@ on:
         description: "Enable debug mode"
         type: boolean
         default: false
-  push:
+
 run-name: "06 - Contexts | DEBUG - ${{ inputs.debug }}"
 jobs:
   echo-data:
