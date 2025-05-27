@@ -7,7 +7,7 @@ on:
         type: boolean
         default: false
 
-run-name: "06 - Contexts | DEBUG - ${{ inputs.debug }}"
+# run-name: "06 - Contexts | DEBUG - ${{ inputs.debug }}"
 jobs:
   echo-data:
     runs-on: ubuntu-latest
