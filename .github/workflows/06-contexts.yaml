@@ -31,8 +31,28 @@ jobs:
           echo "${{ vars.MY_VAR }}"
 
       - name: Print Env Variables
+        env:
+          MY_OVERWRITTEN_VAR: 'step'
         run: |
           echo "Workflow env: ${{ env.MY_WORKFLOW_VAR }}"
           echo "Overwritten env: ${{ env.MY_OVERWRITTEN_VAR }}"
           echo "Job env: ${{ job.env.MY_JOB_VAR }}"
           echo "Overwritten job env: ${{ job.env.MY_OVERWRITTEN_VAR }}"
+
+      - name: Print Env Variables
+        run: |
+          echo "Workflow env: ${{ env.MY_WORKFLOW_VAR }}"
+          echo "Overwritten env: ${{ env.MY_OVERWRITTEN_VAR }}"
+          echo "Job env: ${{ job.env.MY_JOB_VAR }}"
+          echo "Overwritten job env: ${{ job.env.MY_OVERWRITTEN_VAR }}"
+
+
+      - name: Print Contexts
+        run: |
+          echo "GitHub Context: ${{ toJson(github) }}"
+          echo "Job Context: ${{ toJson(job) }}"
+          echo "Runner Context: ${{ toJson(runner) }}"
+          echo "Inputs Context: ${{ toJson(inputs) }}"
+          echo "Secrets Context: ${{ toJson(secrets) }}"
+          echo "Vars Context: ${{ toJson(vars) }}"
+          
