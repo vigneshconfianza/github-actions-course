@@ -16,7 +16,7 @@ jobs:
           STEP_VAR: "I am step env variable"
           step_var2 : "I am another step env variable"
         run: |
-          echo "Step env var: $STEP_VAR"
+          echo "Step env var: ${{ env.STEP_VAR }}"
           echo "Step env var 2: $step_var2"
           echo "Job env var: $JOB_VAR"
           echo "Workflow env var: $WORKFLOW_VAR"
