@@ -19,8 +19,8 @@ jobs:
           echo "SHA: ${{ github.sha }}"
           echo "Runner OS: ${{ runner.os }}"
       
-      - name: ${{ inputs.debug }} Print when triggered from ${{ github.ref_name }}
-        if: ${{ github.ref == 'main' && inputs.debug }}
+      - name: ${{ inputs.debug }} Print when triggered from ${{ github.ref }}
+        if: ${{ github.ref_name == 'main' && inputs.debug }}
         run: |
           echo "This workflow was triggered from the main branch."
       
