@@ -7,9 +7,14 @@ on:
         default: false
         description: "Enable debug mode"
         type: boolean
-        
+env:
+  MY_WORKFLOW_VAR: "workflow"
+  MY_OVERWRITTEN_VAR: "workflow"
 jobs:
   echo-data:
+    env:
+      MY_JOB_VAR: "job"
+      MY_OVERWRITTEN_VAR: "job"
     runs-on: ubuntu-latest
     steps:
       - name: Display Information
@@ -25,6 +30,12 @@ jobs:
       - name: Retrieve Variable
         run: |
           echo "${{ vars.MY_VAR }}"
+
+      - name: Print ENV variables
+        env:
+          MY_OVERWRITTEN_VAR: "step"
+        run: |
+          env | sort
 
       - name: Display all Contexts
         run: |
