@@ -10,7 +10,8 @@ on:
         type: boolean
 
 jobs:
-  echo:
+  debug:
+    if: ${{ inputs.debug }}
     runs-on: ubuntu-latest
     steps:
       - name: ${{ inputs.debug }} Print start-up data
@@ -25,6 +26,9 @@ jobs:
         if: ${{ github.ref_name == 'main' && inputs.debug }}
         run: |
           echo "This workflow was triggered from the main branch."
-      
+  
+  genric:
+    runs-on: ubuntu-latest
+    steps:
       - name: Print Hello
         run: echo "Hello, World!"
