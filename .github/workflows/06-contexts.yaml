@@ -17,3 +17,17 @@ jobs:
       - name: Retrieve Variable
         run: |
           echo "${{ vars.MY_VAR }}"
+
+      - name: Display all Contexts
+        run: |
+          echo "Contexts:"
+          echo "  github: ${{ toJson(github) }}"
+          echo "  job: ${{ toJson(job) }}"
+          echo "  runner: ${{ toJson(runner) }}"
+          echo "  secrets: ${{ toJson(secrets) }}"
+          echo "  strategy: ${{ toJson(strategy) }}"
+          echo "  vars: ${{ toJson(vars) }}"
+          echo "  inputs: ${{ toJson(inputs) }}"
+          echo "  env: ${{ toJson(env) }}"
+          echo "  matrix: ${{ toJson(matrix) }}"
+          echo "  steps: ${{ toJson(steps) }}"
